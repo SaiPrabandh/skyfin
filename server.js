@@ -1,11 +1,7 @@
 const express = require("express");
 const path = require("path");
-const { initializeApp, cert } = require('firebase-admin/app');
-const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } = require('firebase-admin/auth');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const { getFirestore } = require('firebase-admin/firestore');
-const serviceAccount = require('./key.json');
 const multer = require('multer');
 const fs = require('fs');
 
@@ -26,13 +22,6 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false } // set to true in production with HTTPS
 }));
-
-// Firebase Initialization
-initializeApp({
-  credential: cert(serviceAccount)
-});
-const auth = getAuth();
-const db = getFirestore();
 
 // Set up multer for file uploads
 const storage = multer.diskStorage({
@@ -62,9 +51,19 @@ app.get('/post-work', (req, res) => {
   res.render('post-work');
 });
 
-app.get('/chatbot', (req, res) => {
-  res.render('chatbot');
+app.get('/customersup', (req, res) => {
+  res.render('customersup');
 });
+app.get('/payment-faq', (req, res) => {
+  res.render('payment-faq');
+});
+app.get('/faq', (req, res) => {
+  res.render('faq');
+});
+app.get('/project-posting-faq', (req, res) => {
+  res.render('project-posting-faq');
+});
+
 
 app.get('/profile', (req, res) => {
   res.render('profile');
@@ -114,74 +113,32 @@ app.post("/signupWorkSubmit", upload.fields([{ name: 'resume', maxCount: 1 }, { 
   const resume = req.files['resume'][0].path;
   const ca_certificate = req.files['ca_certificate'][0].path;
 
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-
-    const userData = {
-      uid: user.uid,
-      email: email,
-      firstname: firstname,
-      lastname: lastname,
-      phone: phone,
-      skills: skills,
-      resume: resume,
-      ca_certificate: ca_certificate
-    };
-
-    await db.collection('freelancers').doc(user.uid).set(userData);
-
-    res.send("Sign up is successful. Go to <a href='/login'>login</a>.");
-  } catch (error) {
-    console.error('Error creating new user:', error);
-    res.status(500).send("Error: Unable to sign up. Please try again later.");
-  }
+  // Replace this section with your own user creation and database storage logic
+  // For example, using a custom user management system or a different database
+  
+  res.send("Sign up is successful. Go to <a href='/login'>login</a>.");
 });
 
 app.post("/signupHiringSubmit", async (req, res) => {
   const { email, password, fullname, company, phone, location } = req.body;
 
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+  // Replace this section with your own user creation and database storage logic
+  // For example, using a custom user management system or a different database
 
-    const userData = {
-      uid: user.uid,
-      email: email,
-      fullname: fullname,
-      company: company,
-      phone: phone,
-      location: location
-    };
-
-    await db.collection('hirers').doc(user.uid).set(userData);
-
-    res.send("Sign up is successful. Go to <a href='/login'>login</a>.");
-  } catch (error) {
-    console.error('Error creating new user:', error);
-    res.status(500).send("Error: Unable to sign up. Please try again later.");
-  }
+  res.send("Sign up is successful. Go to <a href='/login'>login</a>.");
 });
 
 app.post("/loginSubmit", async (req, res) => {
   const { email, password } = req.body;
 
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    // Successful login, redirect to dashboard or other pages
-    res.render("dashboard");
-  } catch (error) {
-    console.error("Error logging in:", error);
-    res.status(401).send("Invalid email or password");
-  }
+  // Replace this section with your own user authentication logic
+  // For example, using a custom user management system or a different database
+
+  res.render("home");
 });
 
 app.get("/home", (req, res) => {
-  if (req.session.user) {
     res.render("home");
-  } else {
-    res.redirect("/login");
-  }
 });
 
 app.post("/logout", (req, res) => {
