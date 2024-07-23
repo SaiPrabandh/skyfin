@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="post_work.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="post-a-job" class="title">Post a Job</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <form id="job-form" class="job-form">
+            <div id="page-1" class="form-page">
+                <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" id="project-name" name="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-details">Project Details</label>
+                    <textarea id="project-details" name="project-details" required></textarea>
+                </div>
+                <button type="button" class="next-button" onclick="nextPage()">Next</button>
+            </div>
+
+            <div id="page-2" class="form-page" style="display: none;">
+                <div class="form-group">
+                    <label>Skills Required</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="skills" value="Accounting"> Accounting</label>
+                        <label><input type="checkbox" name="skills" value="Auditing"> Auditing</label>
+                        <label><input type="checkbox" name="skills" value="Taxation"> Taxation</label>
+                        <label><input type="checkbox" name="skills" value="Financial Reporting"> Financial Reporting</label>
+                        <label><input type="checkbox" name="skills" value="Budgeting"> Budgeting</label>
+                        <label><input type="checkbox" name="skills" value="Financial Analysis"> Financial Analysis</label>
+                        <label><input type="checkbox" name="skills" value="Compliance"> Compliance</label>
+                        <label><input type="checkbox" name="skills" value="Consulting"> Consulting</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget</label>
+                    <div class="budget-input">
+                        <select id="currency" name="currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                        <input type="number" id="budget" name="budget" required>
+                    </div>
+                </div>
+                <button type="button" class="back-button" onclick="previousPage()">Back</button>
+                <button type="button" class="next-button" onclick="nextPage()">Next</button>
+            </div>
+
+            <div id="page-3" class="form-page" style="display: none;">
+                <div class="form-group">
+                    <label for="scope">Scope of the Project</label>
+                    <textarea id="scope" name="scope" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="expertise-level">Expertise Level</label>
+                    <select id="expertise-level" name="expertise-level" required>
+                        <option value="">Select expertise level</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </div>
+                <button type="button" class="back-button" onclick="previousPage()">Back</button>
+                <button type="button" class="next-button" onclick="nextPage()">Next</button>
+            </div>
+
+            <div id="page-4" class="form-page" style="display: none;">
+                <div class="form-group">
+                    <label for="completion-time">Time to Complete the Project</label>
+                    <input type="text" id="completion-time" name="completion-time" required>
+                </div>
+                <button type="button" class="back-button" onclick="previousPage()">Back</button>
+                <button type="button" class="next-button" onclick="showOverview()">Review</button>
+            </div>
+
+            <div id="page-5" class="form-page overview" style="display: none;">
+                <h2 class="title">Review Your Job Posting</h2>
+                <div class="overview-details">
+                    <div class="overview-item">
+                        <h3>Project Name <button type="button" class="edit-btn" data-field="project-name"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-project-name"></p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Project Details <button type="button" class="edit-btn" data-field="project-details"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-project-details"></p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Skills Required <button type="button" class="edit-btn" data-field="skills"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-skills-required"></p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Budget <button type="button" class="edit-btn" data-field="budget"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-budget"></p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Scope <button type="button" class="edit-btn" data-field="scope"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-scope"></p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Expertise Level <button type="button" class="edit-btn" data-field="expertise-level"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-expertise-level"></p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Completion Time <button type="button" class="edit-btn" data-field="completion-time"><i class="fas fa-edit"></i></button></h3>
+                        <p id="overview-completion-time"></p>
+                    </div>
+                </div>
+                <button type="button" class="back-button" onclick="previousPage()">Back</button>
+                <button type="submit" class="submit-button">Post Job</button>
+            </div>
+        </form>
+    </div>
+    <script>let currentPage = 1;
+
+        function showPage(pageNumber) {
+            document.querySelector('.progress').style.width = `${pageNumber * 20}%`;
+        
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`page-${i}`).style.display = 'none';
+            }
+        
+            document.getElementById(`page-${pageNumber}`).style.display = 'block';
+            currentPage = pageNumber;
+        }
+        
+        function nextPage() {
+            if (validateCurrentPage()) {
+                showPage(currentPage + 1);
+            }
+        }
+        
+        function previousPage() {
+            showPage(currentPage - 1);
+        }
+        
+        function updateOverview() {
+            document.getElementById('overview-project-name').textContent = document.getElementById('project-name').value;
+            document.getElementById('overview-project-details').textContent = document.getElementById('project-details').value;
+            
+            const skills = Array.from(document.querySelectorAll('input[name="skills"]:checked'))
+                .map(checkbox => checkbox.value)
+                .join(', ');
+            document.getElementById('overview-skills-required').textContent = skills || 'None selected';
+            
+            const currency = document.getElementById('currency').value;
+            const budget = document.getElementById('budget').value;
+            document.getElementById('overview-budget').textContent = budget ? `${currency} ${budget}` : 'Not specified';
+            
+            document.getElementById('overview-scope').textContent = document.getElementById('scope').value;
+            document.getElementById('overview-expertise-level').textContent = document.getElementById('expertise-level').value;
+            document.getElementById('overview-completion-time').textContent = document.getElementById('completion-time').value;
+        }
+        
+        function showOverview() {
+            if (validateCurrentPage()) {
+                updateOverview();
+                showPage(5);
+            }
+        }
+        
+        document.getElementById('job-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateAllPages()) {
+                // Here you would typically send the form data to your server
+                alert('Job posted successfully!');
+            }
+        });
+        
+        function validateCurrentPage() {
+            const currentPageElement = document.getElementById(`page-${currentPage}`);
+            const inputs = currentPageElement.querySelectorAll('input[required], textarea[required], select[required]');
+            let isValid = true;
+        
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('error');
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+        
+            if (!isValid) {
+                alert('Please fill in all required fields before proceeding.');
+            }
+            return isValid;
+        }
+        
+        function validateAllPages() {
+            let isValid = true;
+            for (let i = 1; i <= 4; i++) {
+                const page = document.getElementById(`page-${i}`);
+                const inputs = page.querySelectorAll('input[required], textarea[required], select[required]');
+        
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.classList.add('error');
+                    } else {
+                        input.classList.remove('error');
+                    }
+                });
+            }
+        
+            if (!isValid) {
+                alert('Please fill in all required fields before submitting.');
+            }
+            return isValid;
+        }
+        
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const field = this.getAttribute('data-field');
+                const value = document.getElementById(`overview-${field}`).textContent;
+                const input = document.getElementById(field);
+        
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    const options = document.querySelectorAll(`input[name="${input.name}"]`);
+                    options.forEach(option => {
+                        if (option.value === value) {
+                            option.checked = true;
+                        }
+                    });
+                } else if (input.tagName === 'SELECT') {
+                    const options = Array.from(input.options);
+                    options.forEach(option => {
+                        if (option.value === value) {
+                            input.selectedIndex = options.indexOf(option);
+                        }
+                    });
+                } else {
+                    input.value = value;
+                }
+        
+                const pageMap = {
+                    'project-name': 1,
+                    'project-details': 1,
+                    'skills': 2,
+                    'budget': 2,
+                    'scope': 3,
+                    'expertise-level': 3,
+                    'completion-time': 4
+                };
+        
+                showPage(pageMap[field]);
+            });
+        });
+        </script>
+</body>
+</html>

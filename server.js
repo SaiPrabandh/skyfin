@@ -47,8 +47,8 @@ app.get('/hirefreelancer', (req, res) => {
   res.render('hirefreelancer');
 });
 
-app.get('/post-work', (req, res) => {
-  res.render('post-work');
+app.get('/post_work', (req, res) => {
+  res.render('post_work');
 });
 
 app.get('/customersup', (req, res) => {
