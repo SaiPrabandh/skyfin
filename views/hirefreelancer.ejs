@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire a Chartered Accountant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="hirefreelancer.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Hire a Chartered Accountant</h1>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search for accountants...">
+        <button>Search</button>
+        <a href="#">Advanced Search</a>
+    </div>
+
+    <div class="freelancers-container">
+        <!-- Profile 1 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="John Doe" onclick="showProfile('John Doe')">
+            <h3>John Doe</h3>
+            <p>Tax Advisor</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+            <p>$75/hour</p>
+            <p>10+ years of experience in corporate taxation and financial planning.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-calculator"></i> Taxation</span>
+                <span class="skill"><i class="fas fa-chart-line"></i> Auditing</span>
+                <span class="skill"><i class="fas fa-file-invoice-dollar"></i> Financial Analysis</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 50 completed projects</p>
+            <p><i class="fas fa-smile"></i> 98% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('John Doe')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 2 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/women/10.jpg" alt="Jane Smith" onclick="showProfile('Jane Smith')">
+            <h3>Jane Smith</h3>
+            <p>Financial Analyst</p>
+            <div class="rating">⭐⭐⭐⭐ (4.8)</div>
+            <p>$85/hour</p>
+            <p>Expert in financial reporting and analysis with a strong background in market research.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-chart-pie"></i> Financial Reporting</span>
+                <span class="skill"><i class="fas fa-search-dollar"></i> Market Analysis</span>
+                <span class="skill"><i class="fas fa-coins"></i> Investment Strategies</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 30 completed projects</p>
+            <p><i class="fas fa-smile"></i> 95% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Jane Smith')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 3 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Michael Brown" onclick="showProfile('Michael Brown')">
+            <h3>Michael Brown</h3>
+            <p>Auditor</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.7)</div>
+            <p>$90/hour</p>
+            <p>Skilled auditor with experience in regulatory compliance and risk management.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-clipboard-check"></i> Auditing</span>
+                <span class="skill"><i class="fas fa-balance-scale"></i> Regulatory Compliance</span>
+                <span class="skill"><i class="fas fa-shield-alt"></i> Risk Management</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 40 completed projects</p>
+            <p><i class="fas fa-smile"></i> 97% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Michael Brown')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 4 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="Linda Green" onclick="showProfile('Linda Green')">
+            <h3>Linda Green</h3>
+            <p>Management Accountant</p>
+            <div class="rating">⭐⭐⭐⭐ (4.6)</div>
+            <p>$70/hour</p>
+            <p>Specialist in cost accounting, budgeting, and performance management.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-money-bill-wave"></i> Cost Accounting</span>
+                <span class="skill"><i class="fas fa-chart-line"></i> Budgeting</span>
+                <span class="skill"><i class="fas fa-tachometer-alt"></i> Performance Management</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 25 completed projects</p>
+            <p><i class="fas fa-smile"></i> 94% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Linda Green')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 5 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/men/30.jpg" alt="James White" onclick="showProfile('James White')">
+            <h3>James White</h3>
+            <p>Forensic Accountant</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+            <p>$100/hour</p>
+            <p>Expert in forensic accounting, fraud detection, and litigation support.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-search"></i> Forensic Accounting</span>
+                <span class="skill"><i class="fas fa-gavel"></i> Litigation Support</span>
+                <span class="skill"><i class="fas fa-handcuffs"></i> Fraud Detection</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 35 completed projects</p>
+            <p><i class="fas fa-smile"></i> 99% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('James White')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 6 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/women/30.jpg" alt="Sarah Lee" onclick="showProfile('Sarah Lee')">
+            <h3>Sarah Lee</h3>
+            <p>Corporate Accountant</p>
+            <div class="rating">⭐⭐⭐⭐ (4.5)</div>
+            <p>$80/hour</p>
+            <p>Proficient in corporate finance, financial reporting, and internal controls.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-building"></i> Corporate Finance</span>
+                <span class="skill"><i class="fas fa-file-alt"></i> Financial Reporting</span>
+                <span class="skill"><i class="fas fa-shield-alt"></i> Internal Controls</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 20 completed projects</p>
+            <p><i class="fas fa-smile"></i> 92% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Sarah Lee')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 7 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/men/40.jpg" alt="Robert Johnson" onclick="showProfile('Robert Johnson')">
+            <h3>Robert Johnson</h3>
+            <p>Financial Planner</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
+            <p>$95/hour</p>
+            <p>Experienced in personal financial planning, investment management, and tax planning.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-piggy-bank"></i> Financial Planning</span>
+                <span class="skill"><i class="fas fa-chart-line"></i> Investment Management</span>
+                <span class="skill"><i class="fas fa-file-invoice-dollar"></i> Tax Planning</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 45 completed projects</p>
+            <p><i class="fas fa-smile"></i> 96% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Robert Johnson')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 8 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/women/40.jpg" alt="Emily Davis" onclick="showProfile('Emily Davis')">
+            <h3>Emily Davis</h3>
+            <p>Cost Accountant</p>
+            <div class="rating">⭐⭐⭐⭐ (4.7)</div>
+            <p>$85/hour</p>
+            <p>Expert in cost analysis, inventory management, and financial modeling.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-money-bill-wave"></i> Cost Analysis</span>
+                <span class="skill"><i class="fas fa-boxes"></i> Inventory Management</span>
+                <span class="skill"><i class="fas fa-chart-bar"></i> Financial Modeling</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 50 completed projects</p>
+            <p><i class="fas fa-smile"></i> 93% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Emily Davis')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 9 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="David Martinez" onclick="showProfile('David Martinez')">
+            <h3>David Martinez</h3>
+            <p>Auditing Specialist</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+            <p>$90/hour</p>
+            <p>Experienced in external and internal auditing, risk assessment, and compliance.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-clipboard-check"></i> External Auditing</span>
+                <span class="skill"><i class="fas fa-shield-alt"></i> Internal Auditing</span>
+                <span class="skill"><i class="fas fa-balance-scale"></i> Compliance</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 60 completed projects</p>
+            <p><i class="fas fa-smile"></i> 97% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('David Martinez')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+
+        <!-- Profile 10 -->
+        <div class="freelancer-box">
+            <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Anna Brown" onclick="showProfile('Anna Brown')">
+            <h3>Anna Brown</h3>
+            <p>Tax Consultant</p>
+            <div class="rating">⭐⭐⭐⭐ (4.8)</div>
+            <p>$88/hour</p>
+            <p>Specialist in tax consulting, compliance, and strategic planning.</p>
+            <div class="skills">
+                <span class="skill"><i class="fas fa-calculator"></i> Tax Consulting</span>
+                <span class="skill"><i class="fas fa-clipboard-check"></i> Compliance</span>
+                <span class="skill"><i class="fas fa-chart-line"></i> Strategic Planning</span>
+            </div>
+            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-briefcase"></i> 38 completed projects</p>
+            <p><i class="fas fa-smile"></i> 95% client satisfaction</p>
+            <div class="buttons">
+                <button class="button view-profile" onclick="showProfile('Anna Brown')">View Profile</button>
+                <button class="button hire-now">Hire Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showProfile(name) {
+            alert(`Showing detailed profile for ${name}`);
+            // In a real application, this would open a modal with detailed information
+        }
+    </script>
+</body>
+</html>

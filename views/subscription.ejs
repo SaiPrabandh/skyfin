@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Subscription Plans</title>
+    <link rel="stylesheet" href="\subscriptions.css">
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="https://videos.pexels.com/video-files/16572385/16572385-hd_1920_1080_24fps.mp4" type="video/mp4">
+        <source src="your-video.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    <div class="subscription-container">
+        <h1>Premium Subscription Plans</h1>
+        <p>Choose the plan that suits you best</p>
+        <div class="subscription-options">
+            <button class="option-btn" onclick="showPlan('standard')">Standard</button>
+            <button class="option-btn" onclick="showPlan('super')">Super</button>
+            <button class="option-btn" onclick="showPlan('ultra')">Ultra</button>
+        </div>
+
+        <div id="plans" class="plans">
+            <!-- Plans will be dynamically displayed here -->
+        </div>
+        <div class="home-page-option">
+            <button onclick="home">Return to Home Page</button>
+        </div>
+    </div>
+    <script>
+        function showPlan(plan) {
+            const plansDiv = document.getElementById('plans');
+            plansDiv.style.display = 'flex';
+        
+            let plansHtml = '';
+        
+            if (plan === 'standard') {
+                plansHtml = `
+                    <div class="card">
+                        <h2>Standard - Monthly</h2>
+                        <div class="price">₹399/month</div>
+                        <ul>
+                            <li>3 personal financial advising sessions</li>
+                            <li>Access to standard features</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                    <div class="card">
+                        <h2>Standard - Quarterly</h2>
+                        <div class="price">₹959/quarter (20% off)</div>
+                        <ul>
+                            <li>4 personal financial advising sessions per month</li>
+                            <li>Access to standard features</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                    <div class="card">
+                        <h2>Standard - Yearly</h2>
+                        <div class="price">₹3,351/year (30% off)</div>
+                        <ul>
+                            <li>5 personal financial advising sessions per month</li>
+                            <li>Access to standard features</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                `;
+            } else if (plan === 'super') {
+                plansHtml = `
+                    <div class="card">
+                        <h2>Super - Monthly</h2>
+                        <div class="price">₹599/month</div>
+                        <ul>
+                            <li>6 personal financial advising sessions</li>
+                            <li>15 days of premium chat features</li>
+                            <li>Access to additional features</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                    <div class="card">
+                        <h2>Super - Quarterly</h2>
+                        <div class="price">₹1,423/quarter (21% off)</div>
+                        <ul>
+                            <li>30 personal financial advising sessions</li>
+                            <li>65 days of premium chat features</li>
+                            <li>Access to additional features</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                    <div class="card">
+                        <h2>Super - Yearly</h2>
+                        <div class="price">₹5,665/year (30% off)</div>
+                        <ul>
+                            <li>60 personal financial advising sessions</li>
+                            <li>200 days of premium chat features</li>
+                            <li>Access to additional features</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                `;
+            } else if (plan === 'ultra') {
+                plansHtml = `
+                    <div class="card">
+                        <h2>Ultra - Monthly</h2>
+                        <div class="price">₹799/month</div>
+                        <ul>
+                            <li>Unlimited personal financial advising sessions</li>
+                            <li>Premium chat features with free chat translation</li>
+                            <li>Customized emojis</li>
+                            <li>Report hires for abusive language</li>
+                            <li>Post multiple works irrespective of location</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                    <div class="card">
+                        <h2>Ultra - Quarterly</h2>
+                        <div class="price">₹1,895/quarter (21% off)</div>
+                        <ul>
+                            <li>Unlimited personal financial advising sessions</li>
+                            <li>Premium chat features with free chat translation</li>
+                            <li>Customized emojis</li>
+                            <li>Report hires for abusive language</li>
+                            <li>Post multiple works irrespective of location</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                    <div class="card">
+                        <h2>Ultra - Yearly</h2>
+                        <div class="price">₹6,715/year (30% off)</div>
+                        <ul>
+                            <li>Unlimited personal financial advising sessions</li>
+                            <li>Premium chat features with free chat translation</li>
+                            <li>Customized emojis</li>
+                            <li>Report hires for abusive language</li>
+                            <li>Post multiple works irrespective of location</li>
+                        </ul>
+                        <button>Subscribe Now</button>
+                    </div>
+                `;
+            }
+        
+            plansDiv.innerHTML = plansHtml;
+        }
+        
+        function returnHome() {
+            window.location.href = 'skyfin-original\index.html'; // Replace 'index.html' with the actual home page URL
+        }
+        
+    </script>
+</body>
+</html>

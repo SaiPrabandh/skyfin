@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment and Task History</title>
+    <link rel="stylesheet" href="\mypayments.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="customerSupportBtn">Customer Support</button>
+        </div>
+
+        <div class="box">
+            <div class="box-header">
+                <button id="filterPaymentsBtn">Filter by</button>
+                <h2>Payment History</h2>
+                <div id="filterPaymentsOptions" class="dropdown">
+                    <a href="#" data-filter="recent">Recent</a>
+                    <a href="#" data-filter="lastweek">Last Week</a>
+                    <a href="#" data-filter="lastmonth">Last Month</a>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Date of Transaction</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Receipt</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable">
+                    <tr>
+                        <td>001</td>
+                        <td>2024-07-10</td>
+                        <td>Completed</td>
+                        <td>$100.00</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>2024-07-09</td>
+                        <td>Pending</td>
+                        <td>$50.00</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>2024-06-30</td>
+                        <td>Completed</td>
+                        <td>$150.00</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>2024-06-15</td>
+                        <td>Completed</td>
+                        <td>$200.00</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>2024-05-20</td>
+                        <td>Failed</td>
+                        <td>$75.00</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="viewMoreBtn">View More</button>
+        </div>
+
+        <div class="box">
+            <div class="box-header">
+                <button id="filterTasksBtn">Filter by</button>
+                <h2>Task History</h2>
+                <div id="filterTasksOptions" class="dropdown">
+                    <a href="#" data-filter="recent">Recent</a>
+                    <a href="#" data-filter="lastweek">Last Week</a>
+                    <a href="#" data-filter="lastmonth">Last Month</a>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>No. of Days</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="taskTable">
+                    <tr>
+                        <td>Task A</td>
+                        <td>5</td>
+                        <td>$500.00</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Task B</td>
+                        <td>3</td>
+                        <td>$300.00</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>Task C</td>
+                        <td>7</td>
+                        <td>$700.00</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Task D</td>
+                        <td>2</td>
+                        <td>$200.00</td>
+                        <td>Failed</td>
+                    </tr>
+                    <tr>
+                        <td>Task E</td>
+                        <td>10</td>
+                        <td>$1000.00</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="viewMoreTasksBtn">View More</button>
+        </div>
+    </div>
+
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        document.getElementById('filterPaymentsBtn').addEventListener('click', function() {
+            toggleDropdown('filterPaymentsOptions');
+        });
+    
+        document.getElementById('filterTasksBtn').addEventListener('click', function() {
+            toggleDropdown('filterTasksOptions');
+        });
+    
+        // Add filtering functionality here as needed
+    });
+    </script>
+</body>
+</html>

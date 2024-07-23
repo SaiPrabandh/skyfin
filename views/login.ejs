@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/styleforlogin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="login-box">
+            <h2>Welcome</h2>
+            <form action="<%= loginAction %>" method="POST">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label>Are you a:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="freelancer" name="userType" value="freelancer" required>
+                        <label for="freelancer">Freelancer</label>
+                        <input type="radio" id="hirer" name="userType" value="hirer" required>
+                        <label for="hirer">Hirer</label>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+                <div class="social-login">
+                    <button type="button" class="google-login"><img src="/images/google-icon.png" alt="Google Icon"> Continue with Google</button>
+                    <button type="button" class="facebook-login"><img src="/images/facebook-icon.png" alt="Facebook Icon"> Continue with Facebook</button>
+                </div>
+                <div class="links">
+                    <a href="<%= forgotPasswordUrl %>" id="forgot-password">Forgot Password?</a>
+                    <a href="<%= newUserUrl %>" id="new-user">New User?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

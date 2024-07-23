@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="\chatting.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.PMhANanxddOBObcYxcYOcwHaGy&pid=Api&rs=1&c=1&qlt=95&w=114&h=104" alt="Profile Picture">
+                <span class="online-status">Online</span>
+            </div>
+            <h3 class="client-list-heading">Clients List</h3>
+            <ul class="client-list">
+                <li class="client">
+                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Client 1">
+                    <span>John Doe</span>
+                </li>
+                <li class="client">
+                    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Client 2">
+                    <span>Jane Smith</span>
+                </li>
+                <li class="client">
+                    <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Client 3">
+                    <span>Michael Brown</span>
+                </li>
+                <li class="client">
+                    <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Client 4">
+                    <span>Chris Johnson</span>
+                </li>
+                <li class="client">
+                    <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Client 5">
+                    <span>Emily Davis</span>
+                </li>
+            </ul>
+        </div>
+        <div class="chat-screen">
+            <div class="chat-header">
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Profile Picture">
+                    <div>
+                        <span>Client Name</span>
+                        <div class="online-status">Online</div>
+                    </div>
+                </div>
+                <div class="chat-options">
+                    <span>...</span>
+                </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="chat-footer">
+                <div class="icons">
+                    <button>
+                        <i class="fa fa-camera" aria-hidden="true"></i>
+                    </button>
+                    <button>
+                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                    </button>
+                    <label for="file-upload">
+                        <i class="fa fa-paperclip" aria-hidden="true"></i>
+                    </label>
+                    <input type="file" id="file-upload">
+                </div>
+                <input type="text" id="chatInput" placeholder="Type a message">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        function sendMessage() {
+            const chatBody = document.getElementById('chatBody');
+            const chatInput = document.getElementById('chatInput');
+            const message = chatInput.value;
+
+            if (message.trim() === '') return;
+
+            // User message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user';
+            userMessage.textContent = message;
+            chatBody.appendChild(userMessage);
+
+            // Scroll to the bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Clear input field
+            chatInput.value = '';
+
+            // Simulate client reply
+            setTimeout(() => {
+                const clientMessage = document.createElement('div');
+                clientMessage.className = 'chat-message client';
+                clientMessage.textContent = 'Hello there';
+                chatBody.appendChild(clientMessage);
+
+                // Scroll to the bottom
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

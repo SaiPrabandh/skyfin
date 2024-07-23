@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Looking for Work</title>
+    <link rel="stylesheet" href="/signup-2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="register-box">
+            <div class="left">
+                <div class="overlay"></div>
+            </div>
+            <div class="right">
+                <h1>Sign Up - Looking for Work</h1>
+                <form action="/signupWorkSubmit" method="POST">
+                    <div class="input-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="middlename">Middle Name</label>
+                        <input type="text" id="middlename" name="middlename">
+                    </div>
+                    <div class="input-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+                    <div class="input-group-half">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="input-group-half">
+                        <label for="email">Email ID</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="resume">Resume/CV</label>
+                        <input type="file" id="resume" name="resume" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="ca-certification">CA Certification Upload</label>
+                        <input type="file" id="ca-certification" name="ca-certification">
+                    </div>
+                    <div class="input-group">
+                        <label for="skills">Skill Set</label>
+                        <div class="custom-select">
+                            <select id="skills" name="skills" multiple>
+                                <option value="accounting">Accounting</option>
+                                <option value="auditing">Auditing</option>
+                                <option value="taxation">Taxation</option>
+                                <option value="financial_analysis">Financial Analysis</option>
+                                <option value="budgeting">Budgeting</option>
+                                <option value="risk_management">Risk Management</option>
+                                <option value="financial_reporting">Financial Reporting</option>
+                                <option value="compliance">Compliance</option>
+                                <option value="management_consulting">Management Consulting</option>
+                                <option value="corporate_finance">Corporate Finance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Enter your Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
